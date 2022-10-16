@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import shortid from 'shortid';
+import {
+  FormPhoneBook,
+  FormLabel,
+  FormInput,
+  FormButton,
+} from './Phonebook.styled';
 export class Phonebook extends Component {
   state = {
     name: '',
@@ -21,10 +26,10 @@ export class Phonebook extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form onSubmit={this.onSubmit}>
-        <label>
+      <FormPhoneBook onSubmit={this.onSubmit}>
+        <FormLabel>
           Name:
-          <input
+          <FormInput
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -33,10 +38,10 @@ export class Phonebook extends Component {
             value={name}
             onChange={this.onChangeInput}
           />
-        </label>
-        <label>
+        </FormLabel>
+        <FormLabel>
           Number:
-          <input
+          <FormInput
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -45,9 +50,9 @@ export class Phonebook extends Component {
             value={number}
             onChange={this.onChangeInput}
           />
-        </label>
-        <button type="submit">Add contact</button>
-      </form>
+        </FormLabel>
+        <FormButton type="submit">Add contact</FormButton>
+      </FormPhoneBook>
     );
   }
 }

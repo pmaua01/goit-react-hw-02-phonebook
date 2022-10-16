@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
-import { Phonebook } from 'Phonebook/Phonebook';
+import { Phonebook } from 'components/Phonebook/Phonebook';
 
-import { Contacts } from 'Contacts/Contacts';
+import { Contacts } from './Contacts/Contacts';
 import { Filter } from './Filter/Filter';
 export class App extends Component {
   state = {
@@ -57,17 +57,17 @@ export class App extends Component {
         style={{
           width: 720,
           margin: 'auto',
-          fontSize: 40,
+          fontSize: 30,
         }}
       >
         <h1>Phonebook</h1>
         <Phonebook onSubmitForm={this.onSubmitForm}></Phonebook>
         <h2>Contacts</h2>
+        <Filter value={filter} onChange={this.changeFilter}></Filter>
         <Contacts
           contacts={visibleContacts}
           onDelete={this.onDelete}
         ></Contacts>
-        <Filter value={filter} onChange={this.changeFilter}></Filter>
       </div>
     );
   }
